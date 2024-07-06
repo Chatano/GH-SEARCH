@@ -7,7 +7,13 @@ import { Hero } from './hero'
 import { Followers } from './followers'
 import { Repositories } from './repositories'
 
-export default async function UserPage({ params: { user_id } }: { params: { user_id?: string } }) {
+interface Props {
+  params: { 
+    user_id?: string 
+  } 
+}
+
+export default async function UserPage({ params: { user_id } }: Props) {
   const response = await fetch(`https://api.github.com/users/${user_id}`)
 
   if (response?.status === 404) return notFound()
