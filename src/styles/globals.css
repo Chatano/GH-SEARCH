@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html, document, body {
+html,
+document,
+body {
   overflow-x: hidden;
 }
 
 .animated-gradient-bg {
-  @apply bg-animated-gradient bg-[length:200%_200%] animate-gradient;
+  @apply animate-gradient bg-animated-gradient bg-[length:200%_200%];
 }

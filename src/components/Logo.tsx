@@ -1,4 +1,4 @@
-import { MotionImage } from "./motion/image"
+import { MotionImage } from './motion/image'
 
 interface Props {
   size?: number
