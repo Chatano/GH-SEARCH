@@ -8,9 +8,9 @@ import { Followers } from './followers'
 import { Repositories } from './repositories'
 
 interface Props {
-  params: { 
-    user_id?: string 
-  } 
+  params: {
+    user_id?: string
+  }
 }
 
 export default async function UserPage({ params: { user_id } }: Props) {
