@@ -1,10 +1,11 @@
 import { Repository } from '@/models/Repository'
 import { User } from '@/models/User'
+import { CACHE_REVALIDATE_1H } from '@/static/cache'
 import Link from 'next/link'
 import { FiGithub } from 'react-icons/fi'
 
 export async function Repositories({ user }: { user: User }) {
-  const response = await fetch(user.repos_url)
+  const response = await fetch(user.repos_url, { next: { revalidate: CACHE_REVALIDATE_1H }})
   const repositories = (await response.json()) as Repository[]
 
   return (

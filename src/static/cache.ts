@@ -1,0 +1,5 @@
+const SECONDS = 60
+const MINUTES = 60
+const HOURS = 1
+
+export const CACHE_REVALIDATE_1H = HOURS * MINUTES * SECONDS

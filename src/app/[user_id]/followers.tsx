@@ -1,11 +1,12 @@
 import { Follower } from '@/models/Follower'
 import { User } from '@/models/User'
+import { CACHE_REVALIDATE_1H } from '@/static/cache'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiGithub } from 'react-icons/fi'
 
 export async function Followers({ user }: { user: User }) {
-  const response = await fetch(user.followers_url)
+  const response = await fetch(user.followers_url, { next: { revalidate: CACHE_REVALIDATE_1H }})
   const followers = (await response.json()) as Follower[]
 
   return (

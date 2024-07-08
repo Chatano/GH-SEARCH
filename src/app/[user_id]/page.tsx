@@ -6,6 +6,7 @@ import { FiChevronLeft } from 'react-icons/fi'
 import { Hero } from './hero'
 import { Followers } from './followers'
 import { Repositories } from './repositories'
+import { CACHE_REVALIDATE_1H } from '@/static/cache'
 
 interface Props {
   params: {
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export default async function UserPage({ params: { user_id } }: Props) {
-  const response = await fetch(`https://api.github.com/users/${user_id}`)
+  const response = await fetch(`https://api.github.com/users/${user_id}`, { next: { revalidate: CACHE_REVALIDATE_1H }})
 
   if (response?.status === 404) return notFound()
 
